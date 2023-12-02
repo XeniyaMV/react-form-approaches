@@ -1,3 +1,11 @@
-h1 {
-  text-align: center;
-}
+@import './abstracts/variables';
+
+@import './base/reset';
+@import './base/container';
+
+@import './components/list';
+@import './components/logo';
+@import './components/menu';
+@import './components/burger';
+
+@import './layout/header';

@@ -4,13 +4,14 @@ import MainPage from '../pages/main/components/MainPage';
 import UncontrolledRegistration from '../pages/uncontrolledRegistration/components/UncontrolledRegistration';
 import ReactHookRegistration from '../pages/reactHookRegistration/components/ReactHookRegistration';
 import Page404 from '../pages/page404/components/Page404';
+import RoutePaths from '../shared/constants/routePaths';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<MainPage />} />
-      <Route path="uncontrolledForm" element={<UncontrolledRegistration />} />
-      <Route path="reactHookForm" element={<ReactHookRegistration />} />
+      <Route path={RoutePaths.UNCONTROLLED_FORM} element={<UncontrolledRegistration />} />
+      <Route path={RoutePaths.REACT_HOOK_FORM} element={<ReactHookRegistration />} />
       <Route path="*" element={<Page404 />} />
     </Route>
   )

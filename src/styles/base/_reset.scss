@@ -1,0 +1,15 @@
+:root {
+  font-size: 18px;
+  @media screen and (max-width: 992px) {
+    font-size: 14px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: $color-font-primary-dark;
+}
