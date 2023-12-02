@@ -7,7 +7,7 @@ const Logo = (props: LogoProps): JSX.Element => {
 
   return (
     <Link data-testid="logo-component" className={fullClassName} to={`${props.link}`} target={props.linkTarget}>
-      <h1 className="logo__title">{props.title}</h1>
+      <div className="logo__title">{props.title}</div>
       {props.iconUrl && <img className="logo__icon" src={`${props.iconUrl}`} alt="logo icon" />}
     </Link>
   );

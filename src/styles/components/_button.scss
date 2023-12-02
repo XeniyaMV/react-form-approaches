@@ -1,0 +1,30 @@
+.button {
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 1rem;
+  color: $color-font-primary-light;
+  background-color: $color-accent-secondary;
+  border: 0.05rem solid $color-accent-secondary;
+  border-radius: 0.4rem;
+  transition:
+    background-color 0.5s,
+    color 0.5s,
+    border-color 0.5s;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-accent-primary;
+    background-color: $color-font-primary-light;
+    border-color: $color-accent-primary;
+  }
+
+  &:active {
+    color: $color-font-primary-light;
+    background-color: $color-accent-primary-s;
+    border-color: $color-accent-primary;
+  }
+}

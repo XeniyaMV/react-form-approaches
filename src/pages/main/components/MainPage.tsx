@@ -1,5 +1,11 @@
+import StartScreen from './StartScreen';
+
 const MainPage = (): JSX.Element => {
-  return <></>;
+  return (
+    <>
+      <StartScreen />
+    </>
+  );
 };
 
 export default MainPage;
