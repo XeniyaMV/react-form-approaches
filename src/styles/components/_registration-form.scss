@@ -1,0 +1,103 @@
+.registration-form {
+  display: grid;
+
+  grid-template-areas:
+    'image image'
+    'name email'
+    'age password'
+    'country confirm-password'
+    'gender gender'
+    'terms terms'
+    'submit submit'
+    'error error';
+  grid-template-columns: 1fr 1.5fr;
+  justify-items: center;
+  align-items: center;
+  gap: 2rem;
+
+  &__input {
+    width: 100%;
+  }
+
+  &__input-radio {
+    width: 40%;
+  }
+
+  &__input-checkbox {
+    width: 40%;
+    padding: 0.5rem;
+    accent-color: $color-accent-primary;
+    .input__label {
+      cursor: pointer;
+      width: 90%;
+    }
+
+    .input__input {
+      cursor: pointer;
+      width: 10%;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 80%;
+    }
+  }
+
+  &__input_image {
+    grid-area: image;
+  }
+
+  &__input_name {
+    grid-area: name;
+  }
+
+  &__input_email {
+    grid-area: email;
+  }
+
+  &__input_age {
+    grid-area: age;
+  }
+
+  &__input_password {
+    grid-area: password;
+  }
+
+  &__input_confirm-password {
+    grid-area: confirm-password;
+  }
+
+  &__input-radio_gender {
+    grid-area: gender;
+  }
+
+  &__input-checkbox_terms {
+    grid-area: terms;
+  }
+
+  &__submit {
+    grid-area: submit;
+    width: 20%;
+    background-color: $color-accent-primary;
+    border-color: $color-accent-primary;
+  }
+
+  &__error {
+    grid-area: error;
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-areas:
+      'image'
+      'name'
+      'age'
+      'country'
+      'email'
+      'password'
+      'confirm-password'
+      'gender'
+      'terms'
+      'submit'
+      'error';
+    grid-template-columns: 1fr;
+  }
+}

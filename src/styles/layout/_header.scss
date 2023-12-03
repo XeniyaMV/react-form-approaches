@@ -1,0 +1,38 @@
+.header {
+  &__wrapper {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+  }
+
+  &__burger {
+    width: 2rem;
+    height: 2rem;
+    align-self: flex-end;
+  }
+
+  &__nav {
+    width: 40%;
+    padding-bottom: 0.25rem;
+    align-self: flex-end;
+
+    @media screen and (max-width: 992px) {
+      width: 55%;
+    }
+
+    @media screen and (max-width: 576px) {
+      &_open {
+        opacity: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        bottom: -1.5rem;
+      }
+    }
+  }
+}

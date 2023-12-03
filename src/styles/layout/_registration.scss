@@ -1,0 +1,16 @@
+.registration {
+  &__wrapper {
+    padding: 5rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 3rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+}

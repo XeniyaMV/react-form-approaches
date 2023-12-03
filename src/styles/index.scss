@@ -1,3 +1,24 @@
-h1 {
-  text-align: center;
-}
+@import './abstracts/variables';
+
+@import './base/reset';
+@import './base/container';
+
+@import './components/list';
+@import './components/logo';
+@import './components/menu';
+@import './components/burger';
+@import './components/button';
+@import './components/input';
+@import './components/registration-form';
+@import './components/autocomplete-select';
+@import './components/uppload-image';
+@import './components/radio-select';
+@import './components/error-message';
+
+@import './layout/header';
+@import './layout/footer';
+@import './layout/start-screen';
+@import './layout/registration';
+@import './layout/root';
+
+@import './themes/text';
