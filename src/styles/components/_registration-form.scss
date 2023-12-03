@@ -8,7 +8,8 @@
     'country confirm-password'
     'gender gender'
     'terms terms'
-    'submit submit';
+    'submit submit'
+    'error error';
   grid-template-columns: 1fr 1.5fr;
   justify-items: center;
   align-items: center;
@@ -80,6 +81,10 @@
     border-color: $color-accent-primary;
   }
 
+  &__error {
+    grid-area: error;
+  }
+
   @media screen and (max-width: 768px) {
     grid-template-areas:
       'image'
@@ -91,7 +96,8 @@
       'confirm-password'
       'gender'
       'terms'
-      'submit';
+      'submit'
+      'error';
     grid-template-columns: 1fr;
   }
 }

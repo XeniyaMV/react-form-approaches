@@ -1,7 +1,8 @@
+import { forwardRef } from 'react';
 import getFullClassName from '../../helpers/getFullClassName';
 import { InputProps } from '../../types';
 
-const Input = (props: InputProps): JSX.Element => {
+const Input = forwardRef<HTMLInputElement, InputProps>((props, ref): JSX.Element => {
   const fullClassName = getFullClassName('input', props.additionalClassName);
 
   return (
@@ -11,15 +12,17 @@ const Input = (props: InputProps): JSX.Element => {
       </label>
       <input
         id={props.id}
+        ref={ref}
         className="input__input"
         name={props.name}
         type={props.type}
         defaultValue={props.defaultValue}
         value={props.value}
         placeholder={props.placeholder || props.label || ''}
+        onChange={props.onChange}
       />
     </div>
   );
-};
+});
 
 export default Input;

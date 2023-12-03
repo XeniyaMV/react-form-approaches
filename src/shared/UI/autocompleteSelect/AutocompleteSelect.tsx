@@ -1,25 +1,28 @@
-import { useRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 import getFullClassName from '../../helpers/getFullClassName';
 import { AutocompleteSelectProps } from '../../types';
 
-const UncontrolledAutocompleteSelect = (props: AutocompleteSelectProps): JSX.Element => {
-  const inputRef = useRef<HTMLInputElement | null>(null);
+const AutocompleteSelect = forwardRef<HTMLInputElement, AutocompleteSelectProps>((props, ref): JSX.Element => {
   const fullClassName = getFullClassName('autocomplete-select', props.additionalClassName);
   const [filteredOptions, setFilteredOptions] = useState<string[]>(props.options);
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
 
   const handleInputChange = (): void => {
-    const inputValue = inputRef.current?.value;
-    if (inputValue) {
-      setFilteredOptions(props.options.filter((item) => item.toLowerCase().includes(inputValue.toLowerCase())));
-    }
-    if (inputValue === '') {
-      setFilteredOptions(props.options);
+    if (ref && typeof ref !== 'function') {
+      const inputValue = ref.current?.value;
+      if (inputValue) {
+        setFilteredOptions(props.options.filter((item) => item.toLowerCase().includes(inputValue.toLowerCase())));
+      }
+      if (inputValue === '') {
+        setFilteredOptions(props.options);
+      }
     }
   };
 
   const handleOptionClick = (value: string): void => {
-    if (inputRef.current) inputRef.current.value = value;
+    if (ref && typeof ref !== 'function') {
+      if (ref.current) ref.current.value = value;
+    }
     setIsOptionsOpen(false);
   };
 
@@ -39,7 +42,7 @@ const UncontrolledAutocompleteSelect = (props: AutocompleteSelectProps): JSX.Ele
         </label>
         <input
           id={props.id}
-          ref={inputRef}
+          ref={ref}
           className="autocomplete-select__textfield"
           name={props.name}
           type="text"
@@ -67,6 +70,6 @@ const UncontrolledAutocompleteSelect = (props: AutocompleteSelectProps): JSX.Ele
       </div>
     </div>
   );
-};
+});
 
-export default UncontrolledAutocompleteSelect;
+export default AutocompleteSelect;

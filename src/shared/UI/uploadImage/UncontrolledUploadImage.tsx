@@ -1,35 +1,36 @@
-import { useRef } from 'react';
+import { forwardRef, useRef } from 'react';
 import getFullClassName from '../../helpers/getFullClassName';
 import { UploadImageProps } from '../../types';
 import userIcon from '../../../assets/User_box_light.svg';
 
-const UncontrolledUploadImage = (props: UploadImageProps): JSX.Element => {
+const UncontrolledUploadImage = forwardRef<HTMLInputElement, UploadImageProps>((props, ref): JSX.Element => {
   const fullClassName = getFullClassName('uppload-image', props.additionalClassName);
 
-  const inputRef = useRef<HTMLInputElement | null>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
 
   const handleFileChange = (): void => {
-    const file = inputRef.current?.files?.[0];
+    if (ref && typeof ref !== 'function') {
+      const file = ref.current?.files?.[0];
 
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e): void => {
-        if (e.target && e.target.result) {
-          const imagePreview = e.target.result.toString();
-          if (imageRef.current) {
-            imageRef.current.src = imagePreview;
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e): void => {
+          if (e.target && e.target.result) {
+            const imagePreview = e.target.result.toString();
+            if (imageRef.current) {
+              imageRef.current.src = imagePreview;
+            }
           }
-        }
-      };
-      reader.readAsDataURL(file);
+        };
+        reader.readAsDataURL(file);
+      }
     }
   };
 
   return (
     <div className={fullClassName}>
       <div className="uppload-image__img-placeholder">
-        <img className="image" ref={imageRef} src={userIcon} alt="user icon" />
+        <img className="image" ref={imageRef} src={props.defaultSrc || userIcon} alt="user icon" />
       </div>
       <div className="uppload-image__upload">
         <label className="uppload-image__label" htmlFor={props.id}>
@@ -37,7 +38,7 @@ const UncontrolledUploadImage = (props: UploadImageProps): JSX.Element => {
         </label>
         <input
           id={props.id}
-          ref={inputRef}
+          ref={ref}
           className="uppload-image__button"
           name={props.name}
           type="file"
@@ -47,6 +48,6 @@ const UncontrolledUploadImage = (props: UploadImageProps): JSX.Element => {
       </div>
     </div>
   );
-};
+});
 
 export default UncontrolledUploadImage;

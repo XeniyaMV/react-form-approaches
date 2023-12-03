@@ -22,6 +22,7 @@ export interface InputProps extends Props {
   value?: string;
   type?: React.HTMLInputTypeAttribute;
   placeholder?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 export interface AutocompleteSelectProps extends Props {
@@ -38,10 +39,15 @@ export interface UploadImageProps extends Props {
   id: string;
   name?: string;
   label?: string;
+  defaultSrc?: string;
 }
 
 export interface RadioSelectProps extends Props {
   options: string[];
   name?: string;
   label?: string;
+}
+
+export interface ErrorMessageProps extends Props {
+  errorMessage: string;
 }
